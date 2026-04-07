@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { auth, provider } from "./firebase";
-import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
+import { type User, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 
 export default function Auth() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     return onAuthStateChanged(auth, setUser);
